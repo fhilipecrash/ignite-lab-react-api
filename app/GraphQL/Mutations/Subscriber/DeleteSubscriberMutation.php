@@ -1,16 +1,16 @@
 <?php
 
-namespace App\GraphQL\Mutations\Quest;
+namespace App\GraphQL\Mutations\Subscriber;
 
-use App\Models\Quest;
+use App\Models\Subscriber;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Mutation;
 
-class DeleteQuestMutation extends Mutation
+class DeleteSubscriberMutation extends Mutation
 {
     protected $attributes = [
-        'name' => 'deleteQuest',
-        'description' => 'Deletes a quest'
+        'name' => 'deleteSubscriber',
+        'description' => 'Delete a subscriber'
     ];
 
     public function type(): Type
@@ -23,16 +23,15 @@ class DeleteQuestMutation extends Mutation
         return [
             'id' => [
                 'name' => 'id',
-                'type' => Type::nonNull(Type::int()),
-                'rules' => ['exists:quests']
+                'type' => Type::nonNull(Type::int())
             ]
         ];
     }
 
     public function resolve($root, $args)
     {
-        $category = Quest::findOrFail($args['id']);
+        $subscriber = Subscriber::findOrFail($args['id']);
 
-        return  $category->delete() ? true : false;
+        return  $subscriber->delete() ? true : false;
     }
 }

@@ -12,7 +12,7 @@ class Challenge extends Model
     // Deixa o 'title' editável e define o relacionamento um pra muitos
     protected $fillable = ['url']; // Colocar nesse array qualquer valor que eu deseje ser editável
 
-    public function lessons() {
+    public function lesson() {
         return $this->belongsTo(Lesson::class);
     }
 }

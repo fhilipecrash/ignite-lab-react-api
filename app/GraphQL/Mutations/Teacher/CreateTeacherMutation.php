@@ -1,53 +1,53 @@
 <?php
 
-namespace App\GraphQL\Mutations\Quest;
+namespace App\GraphQL\Mutations\Teacher;
 
-use App\Models\Quest;
+use App\Models\Teacher;
 use Rebing\GraphQL\Support\Mutation;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 
-class CreateQuestMutation extends Mutation
+class CreateTeacherMutation extends Mutation
 {
     protected $attributes = [
-        'name' => 'createQuest',
-        'description' => 'Creates a quest'
+        'name' => 'createTeacher',
+        'description' => 'Creates a teacher'
     ];
 
     public function type(): Type
     {
-        return GraphQL::type('Quest');
+        return GraphQL::type('Teacher');
     }
 
     public function args(): array
     {
         return [
-            'title' => [
-                'name' => 'title',
+            'name' => [
+                'name' => 'name',
                 'type' =>  Type::nonNull(Type::string()),
             ],
-            'description' => [
-                'name' => 'description',
+            'bio' => [
+                'name' => 'bio',
                 'type' =>  Type::nonNull(Type::string()),
             ],
-            'reward' => [
+            'avatar_url' => [
                 'name' => 'reward',
                 'type' => Type::nonNull(Type::int()),
             ],
-            'category_id' => [
-                'name' => 'category_id',
+            'lesson_id' => [
+                'name' => 'lesson_id',
                 'type' => Type::nonNull(Type::int()),
-                'rules' => ['exists:categories,id']
+                'rules' => ['exists:lesson,id']
             ]
         ];
     }
 
     public function resolve($root, $args)
     {
-        $quest = new Quest();
-        $quest->fill($args);
-        $quest->save();
+        $teacher = new Teacher();
+        $teacher->fill($args);
+        $teacher->save();
 
-        return $quest;
+        return $teacher;
     }
 }

@@ -1,22 +1,22 @@
 <?php
 
-namespace App\GraphQL\Mutations\Category;
+namespace App\GraphQL\Mutations\Challenge;
 
-use App\Models\Category;
+use App\Models\Challenge;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Mutation;
 
-class UpdateCategoryMutation extends Mutation
+class UpdateChallengeMutation extends Mutation
 {
     protected $attributes = [
-        'name' => 'updateCategory',
-        'description' => 'Updates a category'
+        'name' => 'updateChallenge',
+        'description' => 'Updates a challenge'
     ];
 
     public function type(): Type
     {
-        return GraphQL::type('Category');
+        return GraphQL::type('Challenge');
     }
 
     public function args(): array
@@ -26,8 +26,8 @@ class UpdateCategoryMutation extends Mutation
                 'name' => 'id',
                 'type' =>  Type::nonNull(Type::int()),
             ],
-            'title' => [
-                'name' => 'title',
+            'url' => [
+                'name' => 'url',
                 'type' =>  Type::nonNull(Type::string()),
             ],
         ];
@@ -35,10 +35,10 @@ class UpdateCategoryMutation extends Mutation
 
     public function resolve($root, $args)
     {
-        $category = Category::findOrFail($args['id']);
-        $category->fill($args);
-        $category->save();
+        $challenge = Challenge::findOrFail($args['id']);
+        $challenge->fill($args);
+        $challenge->save();
 
-        return $category;
+        return $challenge;
     }
 }

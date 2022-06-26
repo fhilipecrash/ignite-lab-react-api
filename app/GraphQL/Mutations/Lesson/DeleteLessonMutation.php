@@ -1,16 +1,16 @@
 <?php
 
-namespace App\GraphQL\Mutations\Category;
+namespace App\GraphQL\Mutations\Lesson;
 
-use App\Models\Category;
+use App\Models\Lesson;
 use Rebing\GraphQL\Support\Mutation;
 use GraphQL\Type\Definition\Type;
 
-class DeleteCategoryMutation extends Mutation
+class DeleteLessonMutation extends Mutation
 {
     protected $attributes = [
-        'name' => 'deleteCategory',
-        'description' => 'deletes a category'
+        'name' => 'deleteLesson',
+        'description' => 'deletes a lesson'
     ];
 
     public function type(): Type
@@ -31,8 +31,8 @@ class DeleteCategoryMutation extends Mutation
 
     public function resolve($root, $args)
     {
-        $category = Category::findOrFail($args['id']);
+        $lesson = Lesson::findOrFail($args['id']);
 
-        return  $category->delete() ? true : false;
+        return  $lesson->delete() ? true : false;
     }
 }

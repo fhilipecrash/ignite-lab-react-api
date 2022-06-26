@@ -30,7 +30,7 @@ class TeacherType extends GraphQLType
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'Avatar URL'
             ],
-            'lessons_id' => [
+            'lesson_id' => [
                 'type' => Type::listOf(GraphQL::type('Lesson')),
                 'description' => 'Lesson ID'
             ]

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('bio');
             $table->string('avatar_url');
-            $table->foreignId('lessons_id');
+            $table->foreignId('lesson_id');
             $table->timestamps();
         });
     }
