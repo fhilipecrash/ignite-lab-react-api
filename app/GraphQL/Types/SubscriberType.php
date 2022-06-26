@@ -17,6 +17,10 @@ class SubscriberType extends GraphQLType
     public function fields(): array
     {
         return [
+            'id' => [
+                'type' => Type::nonNull(Type::int()),
+                'description' => 'ID of subscriber'
+            ],
             'name' => [
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'Name of subscriber'

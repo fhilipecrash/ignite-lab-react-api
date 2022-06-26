@@ -18,6 +18,10 @@ class TeacherType extends GraphQLType
     public function fields(): array
     {
         return [
+            'id' => [
+                'type' => Type::nonNull(Type::int()),
+                'description' => 'ID of teacher'
+            ],
             'name' => [
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'Teacher name'
