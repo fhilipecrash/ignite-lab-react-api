@@ -76,19 +76,29 @@ return [
         'default' => [
             'query' => [
                 // ExampleQuery::class,
-                'quest' => \App\GraphQL\Queries\Quest\QuestQuery::class,
-                'quests' => \App\GraphQL\Queries\Quest\QuestsQuery::class,
-                'category' => \App\GraphQL\Queries\Category\CategoryQuery::class,
-                'categories' => \App\GraphQL\Queries\Category\CategoriesQuery::class,
+                'challenge' => \App\GraphQL\Queries\Challenge\ChallengeQuery::class,
+                'challenges' => \App\GraphQL\Queries\Challenge\ChallengesQuery::class,
+                'lesson' => \App\GraphQL\Queries\Lesson\LessonQuery::class,
+                'lessons' => \App\GraphQL\Queries\Lesson\LessonsQuery::class,
+                'subscriber' => \App\GraphQL\Queries\Subscriber\SubscriberQuery::class,
+                'subscribers' => \App\GraphQL\Queries\Subscriber\SubscribersQuery::class,
+                'teacher' => \App\GraphQL\Queries\Teacher\TeacherQuery::class,
+                'teachers' => \App\GraphQL\Queries\Teacher\TeachersQuery::class,
             ],
             'mutation' => [
                 // ExampleMutation::class,
-                'createQuest' => \App\GraphQL\Mutations\Quest\CreateQuestMutation::class,
-                'updateQuest' => \App\GraphQL\Mutations\Quest\UpdateQuestMutation::class,
-                'deleteQuest' => \App\GraphQL\Mutations\Quest\DeleteQuestMutation::class,
-                'createCategory' => \App\GraphQL\Mutations\Category\CreateCategoryMutation::class,
-                'updateCategory' => \App\GraphQL\Mutations\Category\UpdateCategoryMutation::class,
-                'deleteCategory' => \App\GraphQL\Mutations\Category\DeleteCategoryMutation::class
+                'createChallenge' => \App\GraphQL\Mutations\Challenge\CreateChallengeMutation::class,
+                'updateChallenge' => \App\GraphQL\Mutations\Challenge\UpdateChallengeMutation::class,
+                'deleteChallenge' => \App\GraphQL\Mutations\Challenge\DeleteChallengeMutation::class,
+                'createLesson' => \App\GraphQL\Mutations\Lesson\CreateLessonMutation::class,
+                'updateLesson' => \App\GraphQL\Mutations\Lesson\UpdateLessonMutation::class,
+                'deleteLesson' => \App\GraphQL\Mutations\Lesson\DeleteLessonMutation::class,
+                'createSubscriber' => \App\GraphQL\Mutations\Subscriber\CreateSubscriberMutation::class,
+                'updateSubscriber' => \App\GraphQL\Mutations\Subscriber\UpdateSubscriberMutation::class,
+                'deleteSubscriber' => \App\GraphQL\Mutations\Subscriber\DeleteSubscriberMutation::class,
+                'createTeacher' => \App\GraphQL\Mutations\Teacher\CreateTeacherMutation::class,
+                'updateTeacher' => \App\GraphQL\Mutations\Teacher\UpdateTeacherMutation::class,
+                'deleteTeacher' => \App\GraphQL\Mutations\Teacher\DeleteTeacherMutation::class,
             ],
             // The types only available in this schema
             'types' => [
@@ -119,8 +129,10 @@ return [
         // ExampleType::class,
         // ExampleRelationType::class,
         // \Rebing\GraphQL\Support\UploadType::class,
-        'Quest' => \App\GraphQL\Types\QuestType::class,
-        'Category' => \App\GraphQL\Types\CategoryType::class
+        'Challenge' => \App\GraphQL\Types\ChallengeType::class,
+        'Lesson' => \App\GraphQL\Types\LessonType::class,
+        'Subscriber' => \App\GraphQL\Types\SubscriberType::class,
+        'Teacher' => \App\GraphQL\Types\TeacherType::class,
     ],
 
     // The types will be loaded on demand. Default is to load all types on each request

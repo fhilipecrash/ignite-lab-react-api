@@ -42,4 +42,4 @@ As migrations são necessárias pra criar a estrutura de tabelas e relacionament
 As seeders contém um único arquivo que vai usar as factories pra criar valores aleatórios no banco de dados, quando criar uma nova tabela lembre-se de adicioná-la ao arquivo dos seeds.
 
 ### Config
-Aqui tem um arquivo do graphql que é necessário modificar para fazer funcionar
+Nesse diretório existe um arquivo chamado graphql.php onde é necessário fazer a importação dos arquivos das queries e das mutations
