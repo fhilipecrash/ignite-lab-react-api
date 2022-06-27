@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('lesson', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug');
-            $table->string('description');
-            $table->timestamp('available_at');
-            $table->string('video_id');
-            $table->foreignId('challenge_id');
-            $table->foreignId('teacher_id');
+            $table->string('slug')->nullable();
+            $table->text('description')->nullable();
+            $table->dateTime('available_at')->nullable();
+            $table->text('video_id');
+            $table->foreignId('challenge_id')->nullable();
+            $table->foreignId('teacher_id')->nullable();
             $table->string('lesson_type');
             $table->timestamps();
         });
